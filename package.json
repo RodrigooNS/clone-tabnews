@@ -2,18 +2,24 @@
   "name": "controle-gastos",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "dev": "next dev",
+    "dev": "npm run db:up && next dev",
     "db:up": "docker compose -f infra/compose.yaml up -d",
-    "db:down": "docker compose -f infra/compose.yaml down"
+    "db:stop": "docker compose -f infra/compose.yaml stop",
+    "db:down": "docker compose -f infra/compose.yaml down",
+    "migration:create": "node-pg-migrate -m infra/migrations create",
+    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"
   },
   "author": "rodrigoons",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.5.0",
     "next": "^15.1.8",
+    "node-pg-migrate": "^8.0.0",
     "pg": "^8.16.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
