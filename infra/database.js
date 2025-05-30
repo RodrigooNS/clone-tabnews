@@ -8,10 +8,15 @@ async function query(queryObject) {
     port: process.env.POSTGRES_PORT,
     database: process.env.POSTGRES_DB,
   });
-  await client.connect();
-  const result = await client.query(queryObject);
-  await client.end();
-  return result;
+  try {
+    await client.connect();
+    const result = await client.query(queryObject);
+    return result;
+  } catch (e) {
+    throw e;
+  } finally {
+    await client.end();
+  }
 }
 
 export default {
