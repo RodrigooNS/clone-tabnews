@@ -6,7 +6,7 @@ export default async function migrations(request, response) {
 
   const defaultMigrationOptions = {
     dbClient: dbClient,
-    dir: 'public/migrations',
+    dir: 'src/migrations',
     direction: 'up',
     dryRun: true,
     verbose: true,
