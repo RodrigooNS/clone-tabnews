@@ -4,14 +4,9 @@ import database from 'infra/database';
 export default async function migrations(request, response) {
   const dbClient = await database.getNewClient();
 
-  const migrationsDir =
-    process.env.NODE_ENV === 'production'
-      ? '.next/infra/migrations'
-      : 'infra/migrations';
-
   const defaultMigrationOptions = {
     dbClient: dbClient,
-    dir: migrationsDir,
+    dir: 'public/migrations',
     direction: 'up',
     dryRun: true,
     verbose: true,
