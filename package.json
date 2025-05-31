@@ -10,8 +10,8 @@
     "db:up": "docker compose -f infra/compose.yaml up -d",
     "db:stop": "docker compose -f infra/compose.yaml stop",
     "db:down": "docker compose -f infra/compose.yaml down",
-    "migration:create": "node-pg-migrate -m api/v1/migrations/migrations create",
-    "migration:up": "node-pg-migrate -m api/v1/migrations/migrations --envPath .env.development up"
+    "migration:create": "node-pg-migrate -m infra/migrations create",
+    "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up"
   },
   "author": "rodrigoons",
   "license": "ISC",
