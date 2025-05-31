@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "next build && cp -r infra/migrations .next/infra/migrations",
     "test": "jest --runInBand",
     "test:watch": "jest --watchAll --runInBand",
     "dev": "npm run db:up && next dev",
