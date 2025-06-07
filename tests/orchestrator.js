@@ -1,4 +1,4 @@
-import retry from 'async-retry';
+import retry from "async-retry";
 
 async function waitForAllServices() {
   await waitForWebServer();
@@ -10,11 +10,11 @@ async function waitForAllServices() {
     });
 
     async function fetchStatusPage() {
-      const response = await fetch('http://localhost:3000/api/v1/status');
+      const response = await fetch("http://localhost:3000/api/v1/status");
 
       if (response.status !== 200) {
         console.log(
-          `Failed to fetch status page - HTTP error ${response.status}`
+          `Failed to fetch status page - HTTP error ${response.status}`,
         );
         throw Error;
       }
