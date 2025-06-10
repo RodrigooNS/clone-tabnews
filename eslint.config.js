@@ -22,13 +22,7 @@ export default defineConfig([
     files: ["**/*.{js,mjs,cjs,jsx}"],
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
   },
-  {
-    files: ["tests/**"],
-    ...pluginJest.configs["flat/recommended"],
-    rules: {
-      ...pluginJest.configs["flat/recommended"].rules,
-    },
-  },
+  pluginJest.configs["flat/recommended"],
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat["jsx-runtime"],
   eslintConfigPrettier,
