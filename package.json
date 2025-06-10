@@ -15,7 +15,8 @@
     "lint:prettier:check": "prettier --check .",
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint:check": "npx eslint .",
-    "wait-for-postgres": "node infra/scripts/wait-for-postgres.js"
+    "wait-for-postgres": "node infra/scripts/wait-for-postgres.js",
+    "prepare": "husky"
   },
   "author": "rodrigoons",
   "license": "ISC",
@@ -40,6 +41,7 @@
     "eslint-plugin-jest": "^28.13.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.2.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "prettier": "^3.5.3"
   }
