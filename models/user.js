@@ -90,7 +90,6 @@ async function findOneByUsername(username) {
       ;`,
       values: [username],
     });
-    console.log("Resultado da query", username, result.rows[0]);
 
     if (result.rowCount === 0) {
       throw new NotFoundError({
