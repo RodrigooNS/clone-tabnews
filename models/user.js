@@ -145,6 +145,12 @@ async function validateUniqueEmail(email) {
 }
 
 async function hashPasswordInObject(userInputValues) {
+  if (!userInputValues.password) {
+    throw new ValidationError({
+      message: "O campo 'senha' não pode estar vazio.",
+      action: "Digite uma senha para o usuário.",
+    });
+  }
   const hashedPassword = await password.hash(userInputValues.password);
   userInputValues.password = hashedPassword;
 }
